@@ -26,4 +26,4 @@ def test_newline_as_delimiter():
 def test_custom_delimiter():
     """Test that a custom delimiter can be used."""
     assert add("//;\n1;2") == 3
-    assert add("//:\n5|10|15|20") == 50
+    assert add("//:\n5:10:15:20") == 50
