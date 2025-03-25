@@ -12,3 +12,8 @@ def test_two_numbers():
     """Test that two numbers are added."""
     assert add("1,2") == 3 
     assert add("3,4") == 7
+
+def test_multiple_numbers():
+    """Test that multiple numbers are added."""
+    assert add("1,2,3") == 6
+    assert add("5,10,15,20") == 50
