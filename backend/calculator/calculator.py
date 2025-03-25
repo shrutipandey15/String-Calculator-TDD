@@ -1,6 +1,7 @@
+import re
 def add(numbers: str) -> int:
-    """Return 0 for an empty string or the sum of the numbers."""
+    """Return sum of numbers, supporting comma and newline as delimiters."""
     if numbers == "":
         return 0
-    num_list = map(int, numbers.split(","))
+    num_list = map(int, re.split(r",|\n", numbers))
     return sum(num_list)
