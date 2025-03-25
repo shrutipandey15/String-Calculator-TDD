@@ -1,5 +1,6 @@
 def add(numbers: str) -> int:
-    """Return 0 for an empty string or the number itself for a single number."""
+    """Return 0 for an empty string or the sum of the numbers."""
     if numbers == "":
         return 0
-    return int(numbers)
+    num_list = map(int, numbers.split(","))
+    return sum(num_list)
