@@ -22,3 +22,8 @@ def test_newline_as_delimiter():
     """Test that newline are treated as delimiters like commas."""
     assert add("1\n2,3") == 6
     assert add("5\n10\n15,20") == 50
+
+def test_custom_delimiter():
+    """Test that a custom delimiter can be used."""
+    assert add("//;\n1;2") == 3
+    assert add("//:\n5|10|15|20") == 50
