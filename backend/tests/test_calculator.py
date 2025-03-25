@@ -17,3 +17,8 @@ def test_multiple_numbers():
     """Test that multiple numbers are added."""
     assert add("1,2,3") == 6
     assert add("5,10,15,20") == 50
+
+def test_newline_as_delimiter():
+    """Test that newline are treated as delimiters like commas."""
+    assert add("1\n2,3") == 6
+    assert add("5\n10\n15,20") == 50
