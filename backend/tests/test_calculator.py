@@ -1,7 +1,6 @@
-"""Test that an empty string returns 0."""
-
 from calculator.calculator import add
 def test_empty_string():
+    """Test that an empty string returns 0."""
     assert add("") == 0 
 
 def test_single_number():
