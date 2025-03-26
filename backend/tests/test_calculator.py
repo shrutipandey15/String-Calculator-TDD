@@ -53,3 +53,8 @@ def test_ignore_numbers_over_1000():
     assert add("1000,1001,1") == 1001
     assert add("1001,1001,1001") == 0
     assert add("1000,1001,1002") == 1000
+
+def test_special_characters_delimiters():
+    """Test delimiters with special regex characters."""
+    assert add("//[.][*]\n1.2*3") == 6
+    assert add("//[+][?]\n1+2?3") == 6
