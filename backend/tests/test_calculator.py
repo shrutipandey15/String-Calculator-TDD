@@ -1,3 +1,4 @@
+import pytest
 from calculator.calculator import add
 def test_empty_string():
     """Test that an empty string returns 0."""
@@ -58,3 +59,10 @@ def test_special_characters_delimiters():
     """Test delimiters with special regex characters."""
     assert add("//[.][*]\n1.2*3") == 6
     assert add("//[+][?]\n1+2?3") == 6
+
+def test_consecutive_delimiters():
+    """Test consecutive delimiters."""
+    with pytest.raises(ValueError, match="Invalid input: Consecutive delimiters"):
+        add("1,,2")
+    with pytest.raises(ValueError, match="Invalid input: Consecutive delimiters"):
+        add("1,,2,3")
