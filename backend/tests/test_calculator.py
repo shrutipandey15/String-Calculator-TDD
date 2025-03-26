@@ -46,3 +46,10 @@ def test_multiple_custom_delimiters():
     """Test that multiple custom delimiters are supported at once."""
     assert add("//[*][%]\n1*2%3") == 6
     assert add("//[;][###]\n5###10;15") == 30
+
+def test_ignore_numbers_over_1000():
+    """Test that numbers greater than 1000 are ignored."""
+    assert add("2,1001,6") == 8
+    assert add("1000,1001,1") == 1001
+    assert add("1001,1001,1001") == 0
+    assert add("1000,1001,1002") == 1000
