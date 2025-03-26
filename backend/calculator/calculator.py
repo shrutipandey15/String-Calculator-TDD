@@ -15,6 +15,9 @@ def add(numbers: str) -> int:
             delimiter = "|".join(map(re.escape, match))
         else:
             delimiter = re.escape(custom_delimiter)
+    
+    if re.search(fr"({delimiter}){{2,}}", numbers):
+        raise ValueError("Invalid input: Consecutive delimiters")
 
     num_list = list(map(int, re.split(delimiter, numbers)))
 
