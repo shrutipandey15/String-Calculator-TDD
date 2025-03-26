@@ -18,6 +18,11 @@ def add(numbers: str) -> int:
     
     if re.search(fr"({delimiter}){{2,}}", numbers):
         raise ValueError("Invalid input: Consecutive delimiters")
+    
+    try:
+        num_list = list(map(int, re.split(delimiter, numbers)))
+    except ValueError:
+        raise ValueError("Invalid input: Non-integer values")
 
     num_list = list(map(int, re.split(delimiter, numbers)))
 
