@@ -73,3 +73,9 @@ def test_non_integer_input():
         add("1,2,three")
     with pytest.raises(ValueError, match="Invalid input: Non-integer values"):
         add("1,2,3.5,4")
+
+def test_whitespace_handling():
+    """Test handling of whitespace."""
+    assert add(" 1, 2 , 3 ") == 6
+    assert add("1, 2,  3") == 6
+    assert add("1000  , 1 ") == 1001
