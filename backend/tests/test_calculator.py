@@ -31,12 +31,8 @@ def test_custom_delimiter():
 
 def test_negative_numbers():
     """Test that negative numbers raise an exception with the list of negative numbers."""
-    try:
+    with pytest.raises(ValueError, match="Negative numbers not allowed: -2, -4"):
         add("1,-2,3,-4")
-    except ValueError as e:
-        assert str(e) == "Negatives numbers not allowed: -2, -4"
-    else:
-        assert False, "Exception not raised"
 
 def test_multi_character_delimiter():
     """Test that multi-character delimiters are supported."""
@@ -79,3 +75,8 @@ def test_whitespace_handling():
     assert add(" 1, 2 , 3 ") == 6
     assert add("1, 2,  3") == 6
     assert add("1000  , 1 ") == 1001
+
+def test_only_delimiters():
+    """Test input with only delimiters should raise an error."""
+    with pytest.raises(ValueError,match="Invalid input: Only delimiters"):
+        add(",,")
