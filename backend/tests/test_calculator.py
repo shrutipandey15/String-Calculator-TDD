@@ -27,3 +27,12 @@ def test_custom_delimiter():
     """Test that a custom delimiter can be used."""
     assert add("//;\n1;2") == 3
     assert add("//:\n5:10:15:20") == 50
+
+def test_negative_numbers():
+    """Test that negative numbers raise an exception with the list of negative numbers."""
+    try:
+        add("1,-2,3,-4")
+    except ValueError as e:
+        assert str(e) == "Negatives numbers not allowed: -2, -4"
+    else:
+        assert False, "Exception not raised"
