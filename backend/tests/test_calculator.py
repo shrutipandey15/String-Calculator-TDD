@@ -36,3 +36,8 @@ def test_negative_numbers():
         assert str(e) == "Negatives numbers not allowed: -2, -4"
     else:
         assert False, "Exception not raised"
+
+def test_multi_character_delimiter():
+    """Test that multi-character delimiters are supported."""
+    assert add("//***\n1***2***3") == 6
+    assert add("//[xyz]\n5xyz10xyz15") == 30
