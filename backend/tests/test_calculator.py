@@ -41,3 +41,8 @@ def test_multi_character_delimiter():
     """Test that multi-character delimiters are supported."""
     assert add("//***\n1***2***3") == 6
     assert add("//[xyz]\n5xyz10xyz15") == 30
+
+def test_multiple_custom_delimiters():
+    """Test that multiple custom delimiters are supported at once."""
+    assert add("//[*][%]\n1*2%3") == 6
+    assert add("//[;][###]\n5###10;15") == 30
