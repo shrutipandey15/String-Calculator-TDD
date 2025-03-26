@@ -66,3 +66,10 @@ def test_consecutive_delimiters():
         add("1,,2")
     with pytest.raises(ValueError, match="Invalid input: Consecutive delimiters"):
         add("1,,2,3")
+
+def test_non_integer_input():
+    """Test handling of non-integer inputs."""
+    with pytest.raises(ValueError, match="Invalid input: Non-integer values"):
+        add("1,2,three")
+    with pytest.raises(ValueError, match="Invalid input: Non-integer values"):
+        add("1,2,3.5,4")
